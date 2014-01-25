@@ -1,0 +1,239 @@
+<html>
+
+<head>
+<title>The Truth About Vocal Eliminators</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p align="center"><font color="#808080" face="Arial"><big><big><strong>The Truth About
+Vocal Eliminators</strong></big></big></font></p>
+
+<p align="center"><font face="Arial"><em>by Ethan Winer</em></font></p>
+
+<p align="center"><font face="Arial"><small>(This article first appeared in August, 1999
+in <a href="http://www.prorec.com" target="_blank">ProRec</a>, the online audio magazine.)</small></font></p>
+
+<hr color="#000000">
+
+<p><font face="Arial"><font color="#808080"><strong><em>Note added February 26, 2005:</em></strong></font>
+Please do not send email asking if you can hire me to remove the vocals from a track. I'm
+too busy to take on new projects. If you don't have a suitable audio editor program, or
+the techniques described in this article are beyond your skills, I suggest you buy Vogone
+available <a href="http://www.mtu.com/basics/vocal-eliminator.htm" target="_blank">HERE</a>.
+This is a reasonably priced commercial program that performs at least as well as the
+manual editing described in this article.</font></p>
+
+<hr color="#000000">
+
+<p><font face="Arial">For many years the back pages of audio and recording magazines have
+featured ads for hardware devices that claim to remove vocal tracks from a stereo
+recording. Lately, several audio editing programs have also claimed to offer a vocal
+remover feature. Is this possible? Is there really a magical way to remove the lead vocal
+entirely from a commercial recording to create your own instant Karaoke backing tracks?
+The short answer is No. Sometimes a vocal can be removed almost completely, but just as
+often the results are disappointing. In most cases you'll be able to <em>reduce</em> the
+vocal level, but some audible remnant of the original performance will probably remain.
+Further, any process that changes the vocal track is sure to affect the other instruments
+as well. In this article I will explain what vocal removal is all about and how it works.
+I'll also describe the procedure and show how to do it yourself using common audio editing
+tools.</font></p>
+
+<p><font face="Arial" color="#808080"><strong>HOW VOCAL REMOVAL WORKS</strong></font></p>
+
+<p><font face="Arial">You can reduce the level of a vocal (or other lead instrument) in a
+stereo recording by taking advantage of how vocals are generally recorded: in mono and
+placed centered in the mix. Since the vocal track is present in both the left and right
+channels equally, you can, in theory, remove it or at least reduce its level by
+subtracting one channel from the other. Instruments panned away from center will not be
+removed, although the tone of those instruments will probably be affected. The basic
+procedure is to reverse the polarity of one channel, and then combine that with the other
+channel. Any content that is common to both channels will thus be canceled, leaving only
+those parts of the stereo mix that are different in the two channels. Reversing the
+polarity of an audio signal means that the parts of the waveform having a positive voltage
+are made negative, and vice versa. (This is often incorrectly called reversing the phase.)
+One important drawback inherent in vocal removal is that, by definition, it reduces a
+stereo mix to mono. Since you are combining the two channels to cancel the vocal, you end
+up with only one channel. However, there are ways to synthesize a stereo effect afterward,
+and that will be described later.</font></p>
+
+<p><font face="Arial"><em><font color="#808080"><strong>Important note added November 21,
+2002:</strong></font> </em>You cannot remove vocals effectively if your source is an MP3
+file. In order to remove vocals, the vocals in the left and right channels must be <em>exactly</em>
+identical. Then when the polarity is reversed in one channel and the channels are
+combined, anything common to both channels - what's panned in the center - is cancelled.
+But MP3 encoding processes the two channels separately, so they are not identical enough
+to cancel.</font></p>
+
+<p><font face="Arial">It is impossible to completely remove a vocal or reduce its level,
+without affecting other instruments in the mix. First, even though most vocals are placed
+equally in the left and right channels, stereo reverb is usually added to vocal tracks. So
+even if you could completely remove the raw vocal itself, some or all of the reverb is
+sure to remain, leaving an eerie &quot;ghost&quot; image. If you plan to record yourself
+singing over the resultant track, the new vocal can have its own reverb added, and you may
+be able to mix your voice loud enough to mask the ghost reverb from the original vocal
+track. Another limitation arises because vocals are not the only thing panned to the
+center of the mix. Usually, the bass and kick drum are also smack in the middle, and those
+get canceled along with the vocal! However, you can minimize this problem by rolling off
+the lowest bass frequencies on one channel before combining it with the other. Since one
+channel now has less low end than the other, the low frequency instruments will not
+completely cancel. In fact, of the software programs I've seen that offer a vocal removal
+feature, none alter the low end on one channel before combining, so the bass and kick are
+eliminated along with the vocal.</font></p>
+
+<p><font face="Arial">I developed the following procedures using two different types of
+music. One is a tune from a friend's self-produced country music CD; the other is a cello
+concerto I wrote and recorded in my home studio using live classical musicians from a
+local orchestra. I created excerpts of these pieces in the popular MP3 format and they are
+available here for downloading. This way you can compare the original recordings with the
+processed result, to see for yourself how well vocal elimination works in practice.</font></p>
+
+<p><font face="Arial" color="#808080"><strong>STEPS FOR REMOVING VOCALS</strong></font></p>
+
+<p><font face="Arial">The most basic procedure is to load a stereo Wave file of the
+original song into an audio editor program, flip the polarity of one channel and lower the
+bass level somewhat, and then combine the left and right channels into a new, mono track.
+I use Sound Forge 4.5 from Sonic Foundry, which includes all the tools needed to
+manipulate audio files this way. Most other 2-track audio editors have similar
+capabilities, and this technique will apply to those programs as well. Sound Forge lets
+you load a single stereo file, manipulate the left and right channels separately, and then
+combine them to mono all within one edit window. But for these instructions, I split the
+channels into separate files to make each step easier to follow.</font>
+
+<ol>
+  <li><font face="Arial">Load the original stereo file.</font></li>
+  <li><font face="Arial">Copy just the left channel to a new edit window.</font></li>
+  <li><font face="Arial">Copy just the right channel to another new edit window.</font></li>
+  <li><font face="Arial">* Reverse the polarity of the new left channel.</font></li>
+  <li><font face="Arial">* Apply a low end shelf cut starting at 200 Hz (at least 12
+    dB/octave) to the new left channel.</font></li>
+  <li><font face="Arial">Paste the processed left channel into the new right channel in <em>Mix</em>
+    mode (not Overwrite).</font></li>
+  <li><font face="Arial">Audition the result and, if it's acceptable, save it to a new Wave
+    file.</font></li>
+</ol>
+
+<blockquote>
+  <p><font face="Arial">* See the notes added at the end of this article.</font></p>
+</blockquote>
+
+<p><font face="Arial">It is possible that combining the two channels will exceed 0 dB, and
+you will need to reduce the level of <em>both</em> channels a few dB. If you lower only
+one channel, the two channels will not combine equally, and the vocal level won't be
+reduced as much as possible. To roll off the bass frequencies, I used Sound Forge's
+Parametric EQ in the high-pass mode set for 20 dB of cut starting at 200 Hz. (This filter
+setting affects the lows, so why does Sonic Foundry call it high-pass rather than
+low-cut?!) If you use Sound Forge, be sure to select the highest accuracy filter mode,
+since how quickly the EQ is written to the file is less important than having the filter
+perform exactly as you ask it to. Besides cutting the extreme low end on one channel, you
+can optionally reduce some of the highs too. This lets you retain strings and cymbals and
+other instruments that have treble content and are centered in the mix. In general, you
+can cut those frequencies that are outside the vocal range - for male singers you need to
+start the roll-off at a lower frequency than for females. Remember, the frequencies you
+cut from one channel are the ones that will <em>not</em> be canceled when you reverse the
+polarity and merge it with the other channel.</font></p>
+
+<p><font face="Arial" color="#808080"><strong>A BETTER WAY</strong></font></p>
+
+<p><font face="Arial">Rather than use a typical stereo audio editor program, a much better
+approach is to separate the left and right channels into separate files and load them into
+a multi-track audio recording program. The main advantage is that you can more easily
+adjust the channel levels to fine tune the process for the most complete vocal
+cancellation. This also lets you experiment with different high and low frequency turnover
+points, assuming your multi-track software offers EQ for the tracks. Start with just the
+very lowest and highest frequencies removed, and then slide the cut-off frequencies closer
+to the middle until the vocal starts to leak through. Again, you are combining the two
+mono tracks at approximately equal levels - but with the polarity reversed, and the
+extreme highs and lows rolled off on only one channel. I use SAW Plus, which has EQ and
+polarity reverse effects built in. These effects are non-destructive and can be adjusted
+in real time while the left and right channel Wave files are playing. So all I had to do
+was extract the Left and Right files from the original stereo Wave file, load those into
+separate tracks in SAW, and add polarity reverse and low-end shelf cut at 200 Hz to the
+left channel. Once you are satisfied that you have removed as much of the vocal as
+possible and with minimum damage to the rest of the track, save the mix to a new Wave
+file.</font></p>
+
+<p><font face="Arial">One useful tip is to reduce the number of playback buffers if your
+multi-track recorder software allows that. Normally, the more buffers you have the better
+because that avoids &quot;stuttering&quot; when playing back many tracks at once. But the
+trade-off is that more buffers yields a longer time lag between when you change a volume
+level or EQ setting and when you hear that change. So when working with only two mono
+tracks for removing vocals, I set SAW to use the minimum number of buffers, thus making my
+mix changes audible immediately.</font></p>
+
+<p><font face="Arial">Earlier I mentioned that removing vocals always yields a mono sound
+file because the left and right channels are combined as part of the process. There are
+several ways you can synthesize a stereo effect to recreate some of the lost ambience. I
+used the BlueLine series of plug-ins by digilogue, available in a fully functional
+shareware version ($35 to purchase) from the author's web site at <a
+href="http://www.digilogue.de" target="_blank">www.digilogue.de</a>. These plug-ins are
+provided in the universal DirectX format and also as VST versions for use with Steinberg's
+Cubase. I used the BlueLine Stereo plug-in, which did a great job of recreating a stereo
+effect on the mono result files.</font></p>
+
+<p><font face="Arial">You can also create a fake stereo image using equalization. Split a
+mono track into two identical left and right channels, and then equalize each side
+differently. One method is to apply a 10-band graphic equalizer to each channel, and then
+boost and cut alternate bands on each channel. That is, on the left channel you apply 6 dB
+of boost at 62 Hz, the same amount of cut at 125 Hz, boost at 250 Hz, and so forth. The
+right channel is then cut and boosted by the same amounts, but at the frequencies opposite
+the left channel: Where the left channel is boosted the right is cut, and vice versa.</font></p>
+
+<p><font face="Arial">Two final items are worth mentioning. First, if your multi-track
+software requires DirectX plug-ins for EQ and polarity reversal, the inherent delay will
+prevent the desired cancellation and all you'll get is a phased sound with the vocal still
+present. In that case you should reverse the polarity and roll off the low end in a stereo
+editor that writes directly to the file, and load the result back into your multi-track
+recorder. I'll also mention that it is possible to cancel a vocal from a stereo file while
+keeping the original stereo image. If you create a mono Wave file that is a simple mix of
+both the left and right channels, you can reverse its polarity and mix it with the
+original stereo recording. This cancels the vocal and other centered instruments, and
+reverses the left and right channels as a side effect. Although this should be superior to
+my method of reducing the mix to mono, in practice it did not work as well. More of the
+vocal leaked through, and the non-centered instruments were partially canceled.</font></p>
+
+<p><font face="Arial" color="#808080"><strong>THE BOTTOM LINE</strong></font></p>
+
+<p><font face="Arial">Does vocal removal really work? Is it worth the effort to even try?
+I'll leave that for you to decide. Following are two pairs of MP3 clips containing Before
+and After versions of my attempts. The first piece (265 KB for each MP3 file) is <em>Rollin'</em>
+from the CD <em>20 Years Late</em> by Tom Schulz. Click <a href="http://www.ethanwiner.com/TomBefor.MP3">here</a> to
+download a 34-second MP3 clip of the original recording, and click <a href="http://www.ethanwiner.com/TomAfter.MP3">here</a>
+for the result after removing the lead vocal track. The second selection is from my <em>Concerto
+for Cello and Orchestra in A minor</em> (313 KB per file). Click <a href="http://www.ethanwiner.com/CelBefor.MP3">here</a>
+to download a 38-second MP3 fragment of the original, and <a href="http://www.ethanwiner.com/CelAfter.MP3">here</a>
+for the version with the solo cello removed from the track.</font></p>
+
+<p><font face="Arial">Both of the After tracks were processed in SAW Plus as described
+previously, and then a stereo effect was synthesized using the BlueLine Stereo plug-in. I
+rolled off the lows starting at 200 Hz, but didn't bother experimenting with the highs. As
+you can tell I was quite successful removing Tom's lead vocal, mostly because so little
+reverb was added to his voice. In fact, before I rolled off the low end on one channel to
+bring back the bass and kick, the vocal was practically inaudible. All that remains now is
+a muffled hint of his voice. Of course, the bass and kick have lost definition in the
+process, since all but the deepest components were canceled along with the vocal. With the
+cello recording you can clearly hear the ghost reverb, and the beginning passage also
+leaks through because those notes are lower than the 200 Hz cut-off point. I could have
+lowered the EQ frequency, but that would have removed more bass content from the rest of
+the track.</font></p>
+
+<p><font face="Arial"><font color="#808080"><strong>* <em>Added November 14, 2004:</em></strong></font>
+I've been getting a lot of emails asking how to reverse the polarity and roll off the low
+end of one channel in Sound Forge. Here are the specific steps using Sound Forge version
+6:</font></p>
+
+<p><font face="Arial">Double-click in the upper portion of the Wave file view to highlight
+the entire length of just the left channel. If both channels turn dark you didn't have the
+cursor low enough when you double-clicked. Then from the Process menu select Invert/Flip.
+Next, apply a low frequency shelf to roll off below 200 Hz. From the Process menu select
+EQ, and choose Paragraphic from the sub-menu. Check the box at the bottom labeled Enable
+Low Shelf, then either adjust the slider at the right until the display reads 200, or
+simply type 200 in that field. Finally, move the smaller slider all the way to the left
+until the display reads -Inf.</font></p>
+
+<hr color="#000000">
+
+<p align="center"><font face="Arial"><small>Entire contents Copyright (c)1999 Ethan Winer.
+All rights reserved.</small></font></p>
+</body>
+</html>

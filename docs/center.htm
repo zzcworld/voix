@@ -1,0 +1,113 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>The "center cut" algorithm</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p align="center"><font size="5"><strong>The &quot;center
+cut&quot; algorithm</strong></font></p>
+
+<p>Semi-recent versions of VirtualDub have an audio filter known
+as &quot;center cut.&quot; This filter attempts to isolate the
+central components of the incoming signal and separate them from
+the side signals. The result is a stereo output with the
+ambience, and a mono output with the foreground sounds and
+vocals. To test this filter in VirtualDub, enable advanced audio
+filtering, then add input/center cut/output/discard filters to
+the filter graph, in that order (or swap discard and output).</p>
+
+<p>Someone asked me by email if I could describe this algorithm,
+and I thought it would be blog-worthy.</p>
+
+<p>Disclaimer: I'm not an audio researcher and am not familiar
+with the audio literature, so excuse me if I use the wrong terms
+or fail to acknowledge past work, as I am not familiar with
+existing advanced algorithms for vocal removal. I came up with
+this algorithm one day after a discussion about vector projection
+in lower-division math class, so I didn't do any research before
+devising the algorithm.</p>
+
+<p align="center"><font size="4">The algorithm</font></p>
+
+<p>&quot;Center cut&quot; is a separation algorithm that works in
+frequency domain; it analyzes the phase of audio components of
+the same frequency on the left and right channels and attempts to
+determine the approximate center channel. The center channel is
+then subtracted from the original input to produce the side
+channels. Thus, one immediate limitation that should be apparent
+is that center cut requires stereo input. However, unlike the
+traditional method of vocal separation, taking the difference of
+left and right channels, the center cut algorithm is able to both
+produce stereo ambience output and extract the center channel.</p>
+
+<p>The algorithm, as implemented in VirtualDub, is as follows:</p>
+
+<p>Transform the left and right channels to frequency domain
+using the Fast Hartley Transform (FHT). I use a window size of
+4096 and a raised cosine window. </p>
+
+<p>For each frequency component, where L is the 2D vector from
+the left channel, and R is the 2D vector from the right channel: </p>
+
+<p>Compute C = L + R. </p>
+
+<p>Compute a such that (L-&alpha;C)(R-&alpha;C) = 0.
+Basically, scale C so that when it is subtracted from L and R,
+the two resultant vectors are perpendicular. Expanding the math
+gives the equation
+
+(C*C)&alpha;<sup>2</sup> - C*(L+R)&alpha; + (L*R) = 0,
+which can be solved for a by the quadratic formula.</p>
+
+<p>Compute C' = &alpha;C, L' = L-&alpha;C, and R' =
+R-&alpha;C.</p>
+
+<p>Transform L', R', and C' back to time domain. </p>
+
+<p>Overlap and add every quarter window (1024 samples).</p>
+
+<p>Obviously, it isn't necessary to use a Fast Hartley Transform
+to do this; a Fast Fourier Transform (FFT) would do equally well
+as the results of a FHT and a real FFT can be easily exchanged.
+Also, the vector normalizations and the quadratic solve must be
+guarded against degenerate cases. As one or both source vectors
+shrink, the problem becomes increasingly ill-conditioned and the
+derived phase of the center vector becomes erratic; fortunately
+in this case the magnitude of the center vector also shrinks and
+the phase stability matters less. Finally, the components at DC
+and Nyquist rate only have a real component, so they are simply
+set to zero for the center channel.</p>
+
+<p>The algorithm can be optimized to avoid explicit
+normalization, but care must be taken with regard to accuracy
+when doing so. In single-precision the alpha value from the
+quadratic solve already has marginal significand precision (~12
+bits) and moving operations around can affect the output. IIRC,
+when I tried to do so, I got greater leakage from the center
+channel into the side channels. Double-precision would probably
+fare much better.</p>
+
+<p align="center"><font size="4">Opportunities for improvement</font></p>
+
+<p>I'm sure a better overlap-and-add setup could be used.</p>
+
+<p>The center cut algorithm whacks the phase of the left and
+right channels, so it has a tendency to move them apart in time
+and cause echoing effects in the side channels. This phenomenon
+becomes worse as the FHT window is increased, which is
+unfortunate as increasing the window size improves the quality of
+separation.</p>
+
+<p>Overall imbalances in volume between the incoming left and
+right channels result in center leakage into the louder channel.
+It may be possible to add an adaptive normalizer into the
+algorithm to fix this.</p>
+
+<p>&nbsp;</p>
+</body>
+</html>

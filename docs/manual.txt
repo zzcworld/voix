@@ -1,0 +1,101 @@
+                      User's Manual for Vocal Eliminators
+
+                               by Zhang Zhichao
+                            (zzcworld@hotmail.com)
+================================================================================
+* Preface
+
+  This document is not written for a special vocal eliminator, with this you can
+use most of vocal elimination software and get a good result for your songs to
+be devocalized.
+
+  I'm not good in English, so please do not complain about my English. If you
+understand this document, that's OK.
+================================================================================
+* Introduction
+
+  Have you heard of "Vocal Eliminators"? Suppose one day you hear a song on the
+street, and you like it very much. You want to song it for your family, but when
+you search on the Internet, you cannot find the background music of this song.
+What should you do? A vocal eliminator can help you.
+================================================================================
+* The Best! Vocal Elimination Software
+
+  I have heard of many vocal eliminators and I tried some. in my opinion, the
+best vocal eliminator is "Center Channel Extracter" Filter in Adobe Audition. It
+uses phase analysis to catch the center channel(in fact you can remove a channel
+at any position), and remove it. If the vocal track is panned in the center, the
+result is almost the same as other vocal eliminators. But if not, this filter
+works much better any other vocal eliminators. As a commercial audio workstation
+software, Audition is very expensive, we all cannot afford it.
+
+  There seems to be a famous vocal elimination software called "Vogone". I tried
+the demo version of Vogone, and I find it very ordinary. Vogone uses phase
+substraction (L-R), an old method which can only produce a mono result. New
+version of Vogone can process mp3 and wma files, but the price is also very
+expensive. I won't by it if Vogone's algorithm is not to be improved.
+
+  I also tried a VST Plugin called "ExtraBoy Pro". It's not free, but a demo is
+available to download. It's so "advanced" that until now I still cannot use it.
+ExtraBoy Pro seems to be based on phase analysis, and you adjust parameters by
+choosing a rectangle with frequency and phase. It's particular and difficult to
+use, so if you have time and money, you can use ExtraBoy Pro. ExtraBoy is in the
+same family with ExtraBoy Pro, free to use, but costs you a lot to download.
+It's easier to use, but the result is not excellent, I think.
+
+  If you use Winamp, dsp_centercut is a good plugin. Although it can only reduce
+the center channel, dsp_centercut provides us with a good quality. And what's 
+the most important, is the open-source proprety of dsp_centercut. I like
+open-source software more, so I recommend it to you. But if you use professional
+audio editors, you cannot use a Winamp plugin.
+================================================================================
+* How does it work?
+
+  The vocal eliminator analyses the phase of a stereo song and reduces the vocal
+track form the song. So the input song must be stereo. A low-pass filter and a
+high-pass filter keep some part from vocal track in which voices are mixed with
+instruments like bass, drums, etc.
+================================================================================
+* Parameters
+
+  Pan: Pan for vocal track. If the vocal track is panned in the center, set the
+       value to 0(0 degree). If the vocal track is panned in the left, set the
+       value to -100(-90 degrees). If the vocal track is panned in the left, set
+       the value to 100(90 degrees).
+
+  Low: Cutoff frequency for low-pass filter. If the background music is piano
+       solo or guitar solo, set the value to 0 or 50 Hz. If the background music
+       contains bass or kick set the value to 200 Hz. Normally with a song by a
+       male singer the recommended value is 150 ~ 250 Hz. With a song by a
+       female singer the recommended value is 200 ~ 400 Hz.
+
+  High: Cutoff frequency for high-pass filter. If the background music is piano
+       solo or guitar solo, set the value to more than 16000 Hz. Normally with a
+       song by a male singer the recommended value is 6000 ~ 8000 Hz. With a
+       song by a female singer the recommended value is 8000 ~ 12000 Hz.
+
+  Exception: Songs of Vitas.
+================================================================================
+* Troubleshooting
+
+  * Vocal Eliminators can only process stereo songs. (Important!)
+
+  * If you want to process songs in MP3 format, sometimes you will get a bad
+    result. Please uses CDs as source to devocalize.
+
+  * Vocal Elimination does not always work: sometimes it can not reduce the
+    vocal track, sometimes it will destroy the background music.
+
+  * Do not rely on vocal eliminators. A original background music is always
+    better than the devocalized one.
+================================================================================
+* Copyright
+
+  This document is copyleft(you can copy, modify, etc), but you must write
+"Based on the article of Zhang Zhichao". Please respect my works. Thank you.
+================================================================================
+* References
+
+  <<The Truth About Vocal Eliminators>>, Ethan Winer
+================================================================================
+END OF FILE
